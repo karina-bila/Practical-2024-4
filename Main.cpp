@@ -1,13 +1,7 @@
 #include <iostream>
 #include <windows.h>
-#include <cstdlib>
-#include <limits>
-
 
 using namespace std;
-
-void Task1();
-void Task6();
 
 int main()
 {
@@ -15,42 +9,30 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+	//2
+	cout << "Завданння 2:" << endl;
+	int  arr[5] = { 10,20,30,40,50 };
+	int* pStar = &arr[0];
+	int* pEnd = &arr[4];
 
-	string success = "\n\nВірний ключ, програма виконана успішно.";
+	int d = pEnd - pStar;
+	cout << "Відстань між pEnd та pStar: " << d << " елементів" << endl;
+	cout << "Значення pStar: " << *pStar << " Адреса: " << pStar << endl;
+	cout << "Значення pEnd: " << *pEnd << " Адреса: " << pEnd << endl;
 
-	string key = "";
-	while (key != "exit")
-	{
-		//Виводимо меню програми
-		cout << "Введіть номер завдання 1, 6 або exit для виходу: ";
-		cin >> key;
-
-		// Очищення буферу вводу та консолі
-		system("cls");
-		cin.clear();
-
-		switch (key[0]) {
-		case '1':
-			Task1();
-			std::cout << success << std::endl;
-			break;
-		case '6':
-			Task6();
-			std::cout << success << std::endl;
-			break;
-		case 'e':
-			if (key == "exit") {
-				std::cout << "Вихід з програми." << std::endl;
-			}
-			else {
-				std::cout << "Невірний ключ" << std::endl;
-			}
-			break;
-		default:
-			std::cout << "Невірний ключ" << std::endl;
-			continue;
-		}
-	}
+	//3
+	cout << endl;
+	cout << "Завданння 3:" << endl;
+	int* p = pStar;
+	cout << "Початкове значення: " << *p << " Адреса:" << p << endl;
+	p++;
+	cout << "Значення після ++: " << *p << " Адреса:" << p << endl;
+	p += 2; //p=p+2;
+	cout << "Значення після +2: " << *p << " Адреса:" << p << endl;
+	p--;
+	cout << "Значення після --: " << *p << " Адреса:" << p << endl;
+	p -= 2; //p=p-2;
+	cout << "Значення після -2: " << *p << " Адреса:" << p << endl;
 
 	return 0;
 }
