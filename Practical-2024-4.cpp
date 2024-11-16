@@ -1,20 +1,92 @@
-// Practical-2024-4.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <forward_list>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	//встановлюємо українську мову на вивід консолі
+	setlocale(LC_ALL, "ukr");
+
+	/**
+	* Завдання1
+	*/
+	//створюємо однозв'язний список
+	forward_list<int> flist = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	cout << "Однозв'язний список: ";
+
+	//виводимо список
+	for (int i : flist)
+		cout << i << " ";
+	cout << endl;
+
+	/**
+	* Завдання2
+	*/
+	//створюємо однозв'язний список
+	forward_list<int> flist2 = { 10 };
+
+	//добавляємо елементи в початок списку
+	flist2.push_front(15);
+	flist2.push_front(20);
+	flist2.push_front(25);
+	flist2.push_front(30);
+
+	//видаляємо перший елемент
+	flist2.pop_front();
+
+	//виводимо список
+	cout << "Однозв'язний список 2: ";
+	for (int i : flist2)
+		cout << i << " ";
+	cout << endl;
+
+	/**
+	* Завдання3
+	*/
+	//створюємо однозв'язний список
+	forward_list<int> flist3 = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+	//шукаємо елемент зі значеннями 15 та 40 і якщо знайдено виводимо повідомлення
+	// про те що елемент знайдено, якщо ні - повідомлення про те що елемент не знайдено
+	if (find(flist3.begin(), flist3.end(), 15) != flist3.end())
+		cout << "Елемент 15 знайдено в списку 3" << endl;
+	else
+		cout << "Елемент 15 не знайдено в списку 3" << endl;
+
+	if (find(flist3.begin(), flist3.end(), 40) != flist3.end())
+		cout << "Елемент 40 знайдено в списку 3" << endl;
+	else
+		cout << "Елемент 40 не знайдено в списку 3" << endl;
+
+	/**
+	* Завдання4
+	*/
+	//створюємо однозв'язний список
+	forward_list<int> flist4 = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+	//обчислюємо суму елементів списку
+	int sum = 0;
+	for (int i : flist4)
+		sum += i;
+	cout << "Сума елементів списку 4: " << sum << endl;
+
+	/**
+	* Завдання5
+	*/
+	//створюємо однозв'язний список
+	forward_list<int> flist5 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	//реверсуємо список
+	flist5.reverse();
+
+	//виводимо список
+	cout << "Реверсований однозв'язний список 5: ";
+	for (int i : flist5)
+		cout << i << " ";
+
+
+
+
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
